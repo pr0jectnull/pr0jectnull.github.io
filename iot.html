@@ -11,8 +11,15 @@ $('body').terminal({
     hello: function() {
         this.echo('Hello,');
     }
+$('body').terminal({
+    help: function() {
+        this.echo('The available commands are:');
+        this.echo('Hello: Says Hello!');
+        this.echo('Ls: Displays a list of file');
+        this.echo('FILENAME: Displays the contents of the file');
+    }
 }, {
-    greetings: 'My First Web Terminal'
+    greetings: 'Welcome to the internal operations terminal, to view a list of available commands type "help"'
 });
 </script>
 </body>
