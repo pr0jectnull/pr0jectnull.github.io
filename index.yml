@@ -9,14 +9,14 @@ title: Old and Sketchy Website
   </head>
   <body>
     <div class="header">
-      <h1>Welcome to My Old and Sketchy Website</h1>
+      <h1>ProjectNull</h1>
     </div>
     <div class="content">
-      <p>This website is a work in progress and may not be fully functional.</p>
-      <p>Please excuse the dust and clutter as we update and improve the site.</p>
+      <p>Click <a href="register.html">continue</a></p>
+
     </div>
     <div class="footer">
-      <p>Copyright © 2021, Old and Sketchy Website</p>
+      <p>Copyright © 2023, projectnull</p>
     </div>
   </body>
 </html>
