@@ -1,0 +1,22 @@
+---
+layout: default
+title: Old and Sketchy Website
+---
+<html>
+  <head>
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="header">
+      <h1>Welcome to My Old and Sketchy Website</h1>
+    </div>
+    <div class="content">
+      <p>This website is a work in progress and may not be fully functional.</p>
+      <p>Please excuse the dust and clutter as we update and improve the site.</p>
+    </div>
+    <div class="footer">
+      <p>Copyright © 2021, Old and Sketchy Website</p>
+    </div>
+  </body>
+</html>
