@@ -8,18 +8,15 @@
 <body>
   <script>
 $('body').terminal({
-    hello: function() {
-        this.echo('Hello,');
-    },
-$('body').terminal({
-    help: function() {
-        this.echo('The available commands are:');
-        this.echo('Hello: Says Hello!');
-        this.echo('Ls: Displays a list of file');
-        this.echo('FILENAME: Displays the contents of the file');
+    title: function(...args) {
+        const options = $.terminal.parse_options(args);
+        return fetch(options.url || 'https://terminal.jcubic.pl')
+            .then(r => r.text())
+            .then(html => html.match(/<title>([^>]+)<\/title>/)[1]);
     }
 }, {
-    greetings: 'Welcome to the internal operations terminal, to view a list of available commands type "help"'
+    checkArity: false,
+    greetings: 'My First JavaScript Terminal\n'
 });
 </script>
 </body>
