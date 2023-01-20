@@ -38,7 +38,7 @@ function smart_split(input, del, empty_space) {
     return outputs;
 }
 
-var terminal_user_title = "C: Undefined/username";
+var terminal_user_title = "C: IOT/IOT ";
 
 function update_user_title(title) {
     terminal_user_title = title;
@@ -95,6 +95,7 @@ function submit_command() {
 
 register_cmd("list", function(cmd) {
     block_log("Registry Command List: ");
+    block_log("Hello world!");
     registry.forEach(function(value, key, map) {
         block_log("    - " + key);
     });
