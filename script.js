@@ -1,20 +1,20 @@
 const text = document.getElementById("text");
-const messages = ["Welcome to project null", "We are glad you are here", "We have released something on the world we cannot control", "Project Null"];
+const messages = ["Welcome to project null", "We are glad you are here", "We released something onto the world that we cannot control", "Project Null"];
 let index = 0;
 
 function displayText() {
-  let glitch = "";
-  for (let i = 0; i < messages[index].length; i++) {
+  text.innerText = messages[index];
+  let characters = text.getElementsByTagName("span");
+  for (let i = 0; i < characters.length; i++) {
     if (Math.random() < 0.1) {
-      glitch += "&#x200B;";
+      characters[i].classList.add("glitch");
     } else {
-      glitch += messages[index][i];
+      characters[i].classList.remove("glitch");
     }
   }
-  text.innerHTML = glitch;
 }
 
 setInterval(() => {
   displayText();
   index = (index + 1) % messages.length;
-}, 10000);
+}, 5000);
