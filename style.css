@@ -18,8 +18,11 @@ body {
   color: #00ff00;
   border: none;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }
 #change-message-button:hover {
   background-color: #004d00;
 }
+
 
