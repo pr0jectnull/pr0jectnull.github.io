@@ -3,10 +3,29 @@
   <head>
     <title>Project Null</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="script.js"></script>
+     
   </head>
+    
   <body>
-    <div id="text"></div>
+       <script>
+        var example = ['We are project null', 'we have released something we cannot control', 'join us?', 'Project null'];
+
+        textSequence(0);
+        function textSequence(i) {
+
+            if (example.length > i) {
+                setTimeout(function() {
+                    document.getElementById("sequence").innerHTML = example[i];
+                    textSequence(++i);
+                }, 1000); // 1 second (in milliseconds)
+
+            } else if (example.length == i) { // Loop
+                textSequence(0);
+            }
+
+        }
+    </script>
+    <div id="sequence"></div>
 
     <div id="button-container">
   <a href="/join.html" id="change-message-button">Join Us</a>
