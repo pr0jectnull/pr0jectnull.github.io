@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+          body {
+    margin: 0;
+    /*@*/
+}
+#main {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100vw;
+    height: calc(100% - 50px);
+    background-image: url('http://4.bp.blogspot.com/_2UbsSBz9ckE/SvIxtrTVSfI/AAAAAAAAATs/o_ShvOprcW8/s1600/Windows_7_special_clean_HD_wallpaper+3.jpg');
+    background-size: 100% 100%;
+}
+#taskbar {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: calc(100% - 10px);
+    height: 50px;
+    padding-left: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    background-image: url('https://pplware.sapo.pt/wp-content/images2008/windows7/wallpaper_windows7-1600x1200.jpg');
+    box-shadow: 0 1px 5px rgba(255, 255, 255, .7) inset, 0 -1px 4px rgba(33, 33, 33, .5);
+}
+.taskIcon {
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+    float: left;
+    margin: 0;
+}
+#startMenu {
+    height: calc(75% - 30px);
+    width: calc(75% - 30px);
+    padding: 15px;
+    position: fixed;
+    left: 0;
+    bottom: 50px;
+    z-index: 2;
+    background: rgba(0, 120, 195, .5);
+    box-shadow: 5px 5px 5px rgba(255, 255, 255, .1) inset, 0 1px 3px #000;
+    border-radius: 10px 10px 0 0;
+}
+#apps {
+    float: left;
+    height: 100%;
+    width: 60%;
+    background: #FFF;
+    border-radius: 5px;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#sideBar {
+    height: 100%;
+    background: transparent;
+    width: calc(40% - 15px);
+    float: right;
+    border-radius: 5px;
+}
+#accHolder {
+    background: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    
+}
+#account {
+    display: inline;
+    width: 80%;
+    height: auto;
+}
+.window {
+    height: calc(100% - 45px); /* 35px margin @ top */
+    width: calc(100% - 10px);
+    padding: 5px;
+    padding-top: 40px;
+    background-image: url('https://pplware.sapo.pt/wp-content/images2008/windows7/wallpaper_windows7-1600x1200.jpg');
+    box-shadow: 1px 1px 5px rgba(255, 255, 255,  .5) inset;
+    border-radius: 5px;
+}
+.content {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background: #FFF;
+    border-radius: 3px;
+    overflow: auto;
+}
+.exit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 15pt;
+    color: #FFF;
+    background: #D00;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, .9) inset, 1px -1px 3px 1px #F00 inset;
+    width: 70px;
+    height: 25px;
+    border-left: solid 1px #500;
+    border-bottom: solid 1px #500;
+    border-radius: 0 0 5px 5px;
+}
+.title {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    height: 40px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 10pt;
+}
+#mouse {
+    height: 25px;
+    width: 17px;
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    z-index: 100;
+    pointer-events: none;
+}
+.item {
+    width: calc(100% - 11px);
+    padding: 5px;
+    background: #FFF;
+    border: solid 1px #AAA;
+    border-radius: 1px;
+    color: #333;
+    font-size: 10pt;
+    margin: 0;
+}
+.item:active {
+    background: rgba(0, 120, 195, .5);
+    color: #FFF;
+    box-shadow: 0 -5px 10px rgba(255, 255, 255, .5) inset;
+}
+.ico {
+    display: inline-block;
+    height: 12pt;
+    width: 12pt;
+    float: left;
+}
+#paintBg {
+    background-color: #DDD;
+}
+#c {
+    margin: 0;
+    padding: 0;
+    background-color: #FFF;
+    box-shadow: 1px 1px 3px #333;
+}
+#cmdContent {
+    background: #000;
+    color: #EEE;
+    font-family: monospace;
+    font-size: 10pt;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    padding: 10px;
+}
+#paintCtrl {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    border-bottom: solid 1px #FFF;
+}
+#login {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('http://4.bp.blogspot.com/_2UbsSBz9ckE/SvIxtrTVSfI/AAAAAAAAATs/o_ShvOprcW8/s1600/Windows_7_special_clean_HD_wallpaper+3.jpg');
+    background-size: 100% 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#middleLog{
+    width: 100vw;
+    height: auto;
+    text-align: center;
+}
+#flexbox {
+    background-image: url('https://pplware.sapo.pt/wp-content/images2008/windows7/wallpaper_windows7-1600x1200.jpg');
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    width: 150px;
+    border-radius: 20%;
+}
+#loginImg {
+    width: 90%;
+    height: 90%;
+}
+#verify {
+    width: 25px;
+    height: 25px;
+    float: right;
+    display: inline-block;
+    margin: 0;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+}
+#password {
+    outline: none;
+    border: none;
+    display: inline-block;
+    width: 160px;
+    margin: 0;
+    height: 15px;
+    padding: 5px;
+    border-radius: 3px;
+}
+#credLine {
+    width: 200px;
+    display: inline-block;
+}
+.glassItem {
+    background: transparent;
+    box-shadow: 0 0 3px #FFF inset;
+    color: #FFF;
+    width: calc(100% - 10px);
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 10pt;
+}
+.glassItem:active {
+    background: rgba(255, 255, 255, .3);
+}
+</style>
+      <script>
+        $(function(){
+    $("#startMenu").slideUp(0);
+    $(".window").hide();
+    var blacklist = {
+        "#ie" : function(){
+            window.open("about:blank");
+        }
+    }
+    function windowOpen(id){
+        if(blacklist[id]){
+            try{
+                blacklist[id]();
+            }
+            catch(e){}
+        }
+        else{
+            $(id).show();
+        }
+    }
+    function windowClose(id){
+        $(id).hide();
+    }
+    $("#start").click(function(e){
+        e.stopPropagation()
+        $("#startMenu").slideToggle(0);
+    });
+    $(".item").click(function(){
+        var id = "#" + $(this).attr("name");
+        windowOpen(id);
+    });
+    $(".exit").click(function(){
+        var whichWindow = $(this).parent();
+        var id = "#" + $(whichWindow).attr("id");
+        windowClose(id);
+    });
+    $(document).click(function(){
+        $("#startMenu").slideUp(0);
+    })
+    // Paint 
+    $(function(){
+        var c = document.getElementById("c");
+        var ctx = c.getContext("2d");
+        ctx.lineWidth = "1"
+        ctx.strokeStyle = "#000";
+        $('#c').on("touchstart", function(e){
+            e.preventDefault();
+            ctx.beginPath();
+            var x = e.pageX || e.clientX;
+            var y = e.pageY || e.clientY;
+            x -= 5;
+            y -= 40;
+            ctx.moveTo(x, y);
+            
+        });
+        $('#c').on("touchmove", function(e){
+            e.preventDefault();
+            e = e.changedTouches[0];
+            var x = e.pageX || e.clientX;
+            var y = e.pageY || e.clientY;
+            x -= 5;
+            y -= 40;
+            ctx.lineTo(x, y);
+            ctx.stroke()
+        });
+        $("#clr").click(function(){
+            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        });
+        $("#color").change(function(){
+            ctx.strokeStyle = $(this).val();
+        });
+    });
+        $(document).on("mousemove", function(e){
+            var x = e.pageX || e.clientX;
+            var y = e.pageY || e.clientY;
+            $("#mouse").css({
+                "top" : y,
+                "left" : x
+            });
+        });
+        // Login
+        $("#verify").click(function(){
+            if($("#password").val() == "1234"){
+                $("#login").css({
+                    "zIndex" : "1"
+                });
+            }
+            else{
+                
+            }
+        });
+        $("#logout").click(function(){
+            $("#login").css({
+                "zIndex" : "4"
+            });
+            $("#password").val("");
+        });
+        $("#password").keyup(function(e){
+            if(e.which == 13){
+                $(this).trigger("blur");
+                $("#verify").trigger("click");
+            }
+            else{}
+        })
+});
+</script>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+        <title>Page Title</title>
+    </head>
+    <body>
+    <img src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png" id="mouse" />
+        <div id="login">
+            <div id="middleLog">
+                <div id="flexbox"><img src="http://www.mitchellenright.com/wp-content/uploads/2014/08/uac-icon-200x200.png" id="loginImg" /></div>
+            <br />
+            <p id="credLine"><input type="password" id="password" placeholder="Password" /><img src="https://openclipart.org/image/2400px/svg_to_png/169040/wm-back.png" alt="go" id="verify" /></p>
+            </div>
+        </div>
+        <div id="main">
+            <div id="test" class="window">
+                <span class="title">Test Application</span>
+                <span class="exit">×</span>
+                <div class="content">
+                    <iframe src="mail.google.com">
+                </div>
+            </div>
+            <div id="paint" class="window">
+                <span class="title">Microsoft Paint</span>
+                <span class="exit">×</span>
+                <div class="content" id="paintBg">
+                    <div id="paintCtrl">
+                        <button id="clr">Clear</button>
+                        <input type="color" id="color" />
+                    </div>
+                    <canvas id="c" width="250px" height="175px"></canvas>
+                </div>
+            </div>
+            <div id="cmd" class="window">
+                <span class="title">Command Prompt</span>
+                <span class="exit">×</span>
+                <div id="cmdContent" class="content">
+                    Windows Command Prompt is currently Unavailable.
+                </div>
+            </div>
+        </div>
+        <div id="startMenu">
+            <div id="apps">
+                <div class="item" name="paint"><img src="https://upload.wikimedia.org/wikipedia/pt/4/43/Logo_Paint-pt.PNG" class="ico" /> Paint</div>
+                <div class="item" name="test"><img src="https://www.windowsblogitalia.com/wp-content/uploads/2016/05/Esplora-file-Windows-10-Build-10130.png" class="ico" />Test Application</div>
+                <div class="item" name="ie"><img src="https://linuxfud.files.wordpress.com/2007/02/ie7.png?w=479" class="ico" />Internet Explorer</div>
+                <div class="item" name="cmd"><img src="https://upload.wikimedia.org/wikipedia/en/e/ef/Command_prompt_icon_%28windows%29.png" class="ico" />Command Prompt</div>
+            </div>
+            <div id="sideBar">
+            <span id="accHolder">
+                <img src="http://www.mitchellenright.com/wp-content/uploads/2014/08/uac-icon-200x200.png" id="account" />
+            </span>
+                <div id="name"></div>
+                <div id="ctrls">
+                    <br />
+                    <span class="glassItem" id="logout">Logout</span>
+                </div>
+            </div><!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+        <title>Page Title</title>
+    </head>
+    <body>
+    <img src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png" id="mouse" />
+        <div id="login">
+            <div id="middleLog">
+                <div id="flexbox"><img src="http://www.mitchellenright.com/wp-content/uploads/2014/08/uac-icon-200x200.png" id="loginImg" /></div>
+            <br />
+            <p id="credLine"><input type="password" id="password" placeholder="Password" /><img src="https://openclipart.org/image/2400px/svg_to_png/169040/wm-back.png" alt="go" id="verify" /></p>
+            </div>
+        </div>
+        <div id="main">
+            <div id="test" class="window">
+                <span class="title">Test Application</span>
+                <span class="exit">×</span>
+                <div class="content">
+                    Hello World!
+                </div>
+            </div>
+            <div id="paint" class="window">
+                <span class="title">Microsoft Paint</span>
+                <span class="exit">×</span>
+                <div class="content" id="paintBg">
+                    <div id="paintCtrl">
+                        <button id="clr">Clear</button>
+                        <input type="color" id="color" />
+                    </div>
+                    <canvas id="c" width="250px" height="175px"></canvas>
+                </div>
+            </div>
+            <div id="cmd" class="window">
+                <span class="title">Command Prompt</span>
+                <span class="exit">×</span>
+                <div id="cmdContent" class="content">
+                    Windows Command Prompt is currently Unavailable.
+                </div>
+            </div>
+        </div>
+        <div id="startMenu">
+            <div id="apps">
+                <div class="item" name="paint"><img src="https://upload.wikimedia.org/wikipedia/pt/4/43/Logo_Paint-pt.PNG" class="ico" /> Paint</div>
+                <div class="item" name="test"><img src="https://www.windowsblogitalia.com/wp-content/uploads/2016/05/Esplora-file-Windows-10-Build-10130.png" class="ico" />Test Application</div>
+                <div class="item" name="ie"><img src="https://linuxfud.files.wordpress.com/2007/02/ie7.png?w=479" class="ico" />Internet Explorer</div>
+                <div class="item" name="cmd"><img src="https://upload.wikimedia.org/wikipedia/en/e/ef/Command_prompt_icon_%28windows%29.png" class="ico" />Command Prompt</div>
+            </div>
+            <div id="sideBar">
+            <span id="accHolder">
+                <img src="http://www.mitchellenright.com/wp-content/uploads/2014/08/uac-icon-200x200.png" id="account" />
+            </span>
+                <div id="name"></div>
+                <div id="ctrls">
+                    <br />
+                    <span class="glassItem" id="logout">Logout</span>
+                </div>
+            </div>
+        </div>
+        <div id="taskbar">
+            <img src="http://cdn.redmondpie.com/wp-content/uploads/2012/06/Windows-Start-Orb.png" class="taskIcon" id="start" />
+        </div>
+    </body>
+</html>
+        </div>
+        <div id="taskbar">
+            <img src="http://cdn.redmondpie.com/wp-content/uploads/2012/06/Windows-Start-Orb.png" class="taskIcon" id="start" />
+        </div>
+    </body>
+</html>
