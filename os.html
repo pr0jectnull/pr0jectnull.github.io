@@ -2,7 +2,7 @@
 <html>
     <head>
         <style>
-          body {
+            body {
     margin: 0;
     /*@*/
 }
@@ -248,9 +248,9 @@
 .glassItem:active {
     background: rgba(255, 255, 255, .3);
 }
-</style>
-      <script>
-        $(function(){
+        </style>
+        <script>
+            $(function(){
     $("#startMenu").slideUp(0);
     $(".window").hide();
     var blacklist = {
@@ -354,6 +354,7 @@
             else{}
         })
 });
+alert("Pass is 1234")
 </script>
         <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
         <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
@@ -373,7 +374,7 @@
                 <span class="title">Test Application</span>
                 <span class="exit">×</span>
                 <div class="content">
-                    Hello World
+                    Hello World!
                 </div>
             </div>
             <div id="paint" class="window">
@@ -412,3 +413,9 @@
                     <span class="glassItem" id="logout">Logout</span>
                 </div>
             </div>
+        </div>
+        <div id="taskbar">
+            <img src="http://cdn.redmondpie.com/wp-content/uploads/2012/06/Windows-Start-Orb.png" class="taskIcon" id="start" />
+        </div>
+    </body>
+</html>
